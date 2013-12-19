@@ -77,7 +77,7 @@ class Declaration
   alias_native :to_s, :cssText
 
   def method_missing(name, value = nil)
-    if name.end_with? ?!
+    if name.end_with? ?=
       self[name[0 .. -2]] = value
     else
       self[name]
