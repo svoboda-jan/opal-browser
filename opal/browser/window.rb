@@ -110,17 +110,4 @@ module Kernel
   def confirm(value)
     $window.confirm(value)
   end
-
-  # (see Browser::Window#once)
-  def once(time, &block)
-    $window.once(time, &block)
-  end
-
-  alias once_after once
-  alias after once
-
-  # (see Browser::Window#every)
-  def every(time, &block)
-    $window.every(time, &block)
-  end
 end
