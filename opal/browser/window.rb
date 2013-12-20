@@ -82,26 +82,6 @@ class Window
     `#@native.postMessage(#{message}, #{options[:to] || '*'})`
   end
 
-  # Execute the block every given seconds.
-  #
-  # @param time [Float] the seconds between every call
-  # @return [Interval] the object representing the interval
-  def every(time, &block)
-    Interval.new(@native, time, &block)
-  end
-
-  # Execute a block after the given seconds.
-  #
-  # @param time [Float] the seconds after it gets called
-  # @return [Timeout] the object representing the timeout
-  def once(time, &block)
-    Timeout.new(@native, time, &block)
-  end
-
-  alias once_after once
-
-  alias after once
-
   def close
     %x{
       return (window.open('', '_self', '') && window.close()) ||
